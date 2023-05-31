@@ -6,7 +6,7 @@
 
 "use strict"
 
-function calculate() {
+function myButtonClicked() {
   const age = document.getElementById("user-age").value
   document.getElementById("user-age").innerHTML = age
   const day = document.getElementById("day").value
