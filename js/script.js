@@ -13,10 +13,10 @@ function calculate() {
   document.getElementById("day").innerHTML = day
 
   if (day === "tuesday" || day === "thursday" || (age >= 12 && age <= 21)) {
-    document.getElementById("determine").innerHTML =
-      "You can get into the musuem."
+    document.getElementById("price").innerHTML =
+      "You're eligible for free admission!"
   } else {
-    document.getElementById("determine").innerHTML =
-      "Sorry you can't get into the musuem"
+    document.getElementById("price").innerHTML =
+      "You're unfortunately unable to get free admission."
   }
 }
