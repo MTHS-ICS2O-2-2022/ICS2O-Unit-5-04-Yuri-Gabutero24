@@ -13,62 +13,57 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png" />
   <link rel="manifest" href="/site.webmanifest" />
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-<title></title>
-</head>
-<body>
-  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-  <script src="./js/script.js"></script>
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">How much to get into the museum?</span>
-      </div>
-    </header>
-    <main class="mdl-layout__content">
-      <p></p>
-    <form action="#">
-      <div class="mdl-textfield mdl-js-textfield">
-        <!--Input pattern attribute-->
-        <input
-          class="mdl-textfield__input"
-          type="text"
-          pattern="[0-9]*"
-          id="Age"
-        />
-        <!--mdl-textfield__label-->
-        <label class="mdl-textfield__label" for="Age"
-          >Age..</label>
-        <!--class "mdl-textfield__error"-->
-        <span class="mdl-textfield__error">Input is not a number.</span>
-      </div>
-    </form>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <label class="mdl-textfield__label" for="day-of-week">Day of the week..</label>
-      </div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <select class="mdl-textfield__input" id="day-of-week" name="Day of the Week">
-          <option>Monday</option>
-          <option>Tuesday</option>
-          <option>Wednesday</option>
-          <option>Thursday</option>
-          <option>Friday</option>
-          <option>Saturday</option>
-          <option>Sunday</option>
-        </select>
-        <label class="mdl-textfield__label" for="day-of-week">Select a day..</label>
-      </div>
-          <!-- Raised button with ripple -->
-          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-            onclick="myButtonClicked()">
-            Cost
-          </button>
+<title>Museum costs..</title>
+  </head>
+  <body>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script defer src="./js/getmdl-select.min.js"></script>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Calculate admission costs..</span>
         </div>
-        <div id="Cost"></div>
-      </div>
-    </main>
-  </div>
-</body>
+      </header>
+      <main class="mdl-layout__content">
+      <h>Find out if you get free admission by entering your age and the day below!</h>
+        <!-- Numeric Textfield -->
+        <form action="#">
+          <div class="mdl-textfield mdl-js-textfield">
+            <!--input pattern attribute-->
+            <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="user-age" />
+            <!--mdl-textfielf__label-->
+            <label class="mdl-textfield__label" for="user-age">Age goes here..</label>
+            <!--class "mdl-textfield__error"-->
+            <span class="mdl-textfield__error">Input is not a number!</span>
+          </div>
+        </form>
+        <br />
+        <!-- Select with floating label and arrow -->
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+          <input type="text" value="" class="mdl-textfield__input" id="day">
+          <input type="hidden" value="" name="day-">
+          <label for="day" class="mdl-textfield__label">Day goes here...</label>
+          <ul for="day" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+            <li class="mdl-menu__item" data-val="SUNDAY">Sunday</li>
+            <li class="mdl-menu__item" data-val="MONDAY">Monday</li>
+            <li class="mdl-menu__item" data-val="TUESDAY">Tuesday</li>
+            <li class="mdl-menu__item" data-val="WEDNESDAY">Wednesday</li>
+            <li class="mdl-menu__item" data-val="THURSDAY">Thursday</li>
+            <li class="mdl-menu__item" data-val="FRIDAY">Friday</li>
+            <li class="mdl-menu__item" data-val="SATURDAY">Saturday</li>
+          </ul>
+        </div>
+        <br />
+        <!-- Accent-colored raised button with ripple -->
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+          onclick="myButtonClicked()">
+          Calculate
+        </button>
+        <br />
+          <div id="price"></div>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>
